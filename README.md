@@ -1,4 +1,4 @@
-# Machine Learning 2025
+# Machine Learning
 
 Welcome! This repository is dedicated to sharing machine learning projects, tutorials, and step-by-step exercises. Here you’ll find a growing collection of examples and real-world projects, organized by topic and technique.
 
