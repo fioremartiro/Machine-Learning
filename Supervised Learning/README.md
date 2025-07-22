@@ -17,7 +17,7 @@ Example algorithms:
 - **Lasso Regression**
 - **Elastic Net Regression**
 
-👉 See [Regression Examples](./Regression/README.md)
+👉 See [Regression Examples](./Regression Examples/README.md)
 
 ---
 
