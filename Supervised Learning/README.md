@@ -17,7 +17,7 @@ Example algorithms:
 - **Lasso Regression**
 - **Elastic Net Regression**
 
-👉 See [Regression Examples](./Regression Examples/README.md)
+👉 See [Regression Examples](./Regression%20examples/README.md)
 
 ---
 
@@ -32,7 +32,7 @@ Example algorithms:
 - **K-Nearest Neighbors (KNN)**
 - **Naive Bayes**
 
-👉 See [Classification Examples](./Classification/README.md)
+👉 See [Classification Examples](./Classification%20Examples/README.md)
 
 ---
 
