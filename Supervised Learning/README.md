@@ -19,6 +19,11 @@ Example algorithms:
 
 👉 See [Regression Examples](./Regression%20examples/README.md)
 
+## **Example - Predicting House Prices** 
+
+You have a dataset with features like square footage, number of bedrooms, and location. The goal is to predict the **price** of a house.  
+Here the output (price) is a continuous numeric value.
+
 ---
 
 ## 🏷️ Classification
@@ -33,6 +38,10 @@ Example algorithms:
 - **Naive Bayes**
 
 👉 See [Classification Examples](./Classification%20Examples/README.md)
+
+## **Example - Email Spam Detection**
+
+You have a dataset of emails with features like word frequency, presence of links, and sender reputation. The goal is to predict whether each email is **spam or not spam**. Here the output (spam/not spam) is a discrete class.
 
 ---
 
