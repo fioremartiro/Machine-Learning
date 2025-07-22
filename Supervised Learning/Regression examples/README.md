@@ -1,27 +1,28 @@
 # Regression Algorithms in Supervised Learning
 
-Regression algorithms are used in supervised learning to model the relationship between input variables (independent variables) and a continuous output variable (dependent variable). These algorithms predict numeric values based on patterns found in the data. Below are some commonly used regression algorithms:
+Regression algorithms are used in supervised learning to model the relationship between input variables (independent variables) and a **continuous output variable** (dependent variable). These algorithms predict numeric values based on patterns found in the data.
+
+Below are the regression algorithms demonstrated in this folder:
+
+---
 
 ## 1. Linear Regression
-Linear regression is the simplest type of regression algorithm used in machine learning. It models the relationship between the independent variables and the dependent variable using a linear function.
+Linear regression is the simplest type of regression algorithm. It models the relationship between the independent variables and the dependent variable using a linear function.
 
-## 2. Logistic Regression
-Logistic regression is a type of regression algorithm used for classification problems. It models the probability of a binary outcome based on the independent variables.
+## 2. Multiple Regression
+Multiple regression is an extension of linear regression that allows modeling the relationship between multiple independent variables and a single dependent variable.
 
-## 3. Multiple Regression
-Multiple regression is an extension of linear regression that allows us to model the relationship between multiple independent variables and a single dependent variable.
+## 3. Polynomial Regression
+Polynomial regression models the relationship between the independent variables and the dependent variable using a polynomial function. It is useful when data shows a non-linear trend.
 
-## 4. Polynomial Regression
-Polynomial regression is a type of regression algorithm that models the relationship between the independent variables and the dependent variable using a polynomial function.
+## 4. Ridge Regression
+Ridge Regression addresses multicollinearity in multiple regression by adding a regularization term to the cost function, which penalizes large coefficients and helps avoid overfitting.
 
-## 5. Ridge Regression
-Ridge Regression is a type of regression algorithm used to solve the problem of multicollinearity in multiple regression. It adds a regularization term to the cost function to avoid overfitting.
+## 5. Lasso Regression
+Lasso Regression also handles multicollinearity but uses L1 regularization, which can shrink some coefficients to zero, effectively performing feature selection.
 
-## 6. Lasso Regression
-Lasso regression is another type of regression algorithm used to solve the problem of multicollinearity in multiple regression. It uses a different type of regularization term than Ridge Regression.
-
-## 7. Elastic Net Regression
-Elastic Net Regression is a combination of Ridge Regression and Lasso Regression. It uses both types of regularization terms to solve the problem of multicollinearity.
+## 6. Elastic Net Regression
+Elastic Net combines both Ridge (L2) and Lasso (L1) regularization penalties. It is particularly useful when there are multiple correlated features.
 
 ---
 
