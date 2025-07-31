@@ -1,6 +1,7 @@
 # Breast Cancer Detection Using Machine Learning
 
 This project demonstrates how to build a machine learning model to detect breast cancer using real diagnostic measurements. It includes all steps from data preprocessing to training and evaluating a Logistic Regression model, followed by a 3D visualization of synthetic tumor shapes based on patient data.
+<img width="3221" height="1561" alt="image" src="https://github.com/user-attachments/assets/ed2804c6-777d-4fd3-9eb9-9015beab367e" />
 
 ## Table of Contents
 
