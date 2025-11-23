@@ -9,3 +9,5 @@ pypdf
 tiktoken
 langchain-pinecone
 sentence-transformers
+pypdf
+python-multipart

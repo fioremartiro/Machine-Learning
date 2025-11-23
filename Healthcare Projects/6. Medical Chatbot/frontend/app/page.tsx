@@ -8,6 +8,9 @@ export default function Home() {
   const [isLoading, setIsLoading] = useState(false);
   const messagesEndRef = useRef<null | HTMLDivElement>(null);
 
+  // Use environment variable for API URL, fallback to localhost for development
+  const API_URL = process.env.NEXT_PUBLIC_API_URL || 'http://localhost:8000';
+
   const scrollToBottom = () => {
     messagesEndRef.current?.scrollIntoView({ behavior: "smooth" });
   };
@@ -16,9 +19,46 @@ export default function Home() {
     scrollToBottom();
   }, [messages]);
 
-  const sendMessage = async (e?: React.FormEvent) => {
-    if (e) e.preventDefault();
-    if (!input.trim()) return;
+  const [isUploading, setIsUploading] = useState(false);
+
+  const handleFileUpload = async (e: React.ChangeEvent<HTMLInputElement>) => {
+    if (!e.target.files || e.target.files.length === 0) return;
+
+    const file = e.target.files[0];
+    setIsUploading(true);
+
+    const formData = new FormData();
+    formData.append("file", file);
+
+    try {
+      const response = await fetch(`${API_URL}/upload`, {
+        method: "POST",
+        body: formData,
+      });
+
+      if (!response.ok) throw new Error("Upload failed");
+
+      const data = await response.json();
+      setMessages(prev => [...prev, {
+        role: "assistant",
+        content: `✅ **Analysis Complete:** I have read *${file.name}*. You can now ask me questions about this report.`
+      }]);
+    } catch (error) {
+      console.error("Upload error:", error);
+      setMessages(prev => [...prev, {
+        role: "assistant",
+        content: "❌ **Upload Failed:** I couldn't process that file. Please try again."
+      }]);
+    } finally {
+      setIsUploading(false);
+      // Reset input
+      e.target.value = "";
+    }
+  };
+
+  const sendMessage = async (e: React.FormEvent) => {
+    e.preventDefault();
+    if (!input.trim() || isLoading) return;
 
     const userMessage = { role: 'user', content: input };
     setMessages(prev => [...prev, userMessage]);
@@ -26,16 +66,17 @@ export default function Home() {
     setIsLoading(true);
 
     try {
-      const response = await fetch('http://localhost:8000/chat', {
+      const response = await fetch(`${API_URL}/chat`, {
         method: 'POST',
         headers: { 'Content-Type': 'application/json' },
         body: JSON.stringify({ question: input }),
       });
 
       const data = await response.json();
-      setMessages(prev => [...prev, { role: 'assistant', content: data.answer }]);
+      const aiMessage = { role: 'assistant', content: data.answer };
+      setMessages(prev => [...prev, aiMessage]);
     } catch (error) {
-      setMessages(prev => [...prev, { role: 'assistant', content: "Error: Could not connect to the brain. Make sure the backend is running!" }]);
+      console.error('Error:', error);
     } finally {
       setIsLoading(false);
     }
@@ -46,7 +87,6 @@ export default function Home() {
       {/* Header - Always visible */}
       <header className="p-4 border-b border-gray-800/50 bg-[#131314] flex items-center justify-between sticky top-0 z-10">
         <div className="flex items-center gap-2">
-          <div className="w-3 h-3 rounded-full bg-blue-500 animate-pulse"></div>
           <h1 className="text-lg font-medium text-gray-200">Cardiology AI Assistant</h1>
         </div>
         <div className="text-xs text-gray-500">Powered by Gemini 2.0</div>
@@ -54,25 +94,38 @@ export default function Home() {
 
       {messages.length === 0 ? (
         /* Empty State - Centered Hero */
-        <div className="flex-1 flex flex-col items-center justify-center p-4">
+        <div className="flex-1 flex flex-col items-center justify-center p-4 pb-60">
+          <div className="text-6xl mb-6 animate-heartbeat">🫀</div>
           <h2 className="text-3xl font-medium text-gray-200 mb-8">I'm your Cardiology AI Assistant</h2>
           <div className="w-full max-w-2xl">
             <form onSubmit={sendMessage} className="relative">
+              {/* Upload Button (Hero) - Left Side */}
+              <label className="absolute left-2 top-1/2 -translate-y-1/2 p-2 cursor-pointer hover:bg-gray-700 rounded-full transition-colors z-10">
+                <input type="file" accept=".pdf" className="hidden" onChange={handleFileUpload} disabled={isUploading} />
+                {isUploading ? (
+                  <div className="w-5 h-5 border-2 border-gray-400 border-t-transparent rounded-full animate-spin"></div>
+                ) : (
+                  <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" strokeWidth={2} stroke="currentColor" className="w-6 h-6 text-gray-400">
+                    <path strokeLinecap="round" strokeLinejoin="round" d="M12 4.5v15m7.5-7.5h-15" />
+                  </svg>
+                )}
+              </label>
+
               <input
                 type="text"
                 value={input}
                 onChange={(e) => setInput(e.target.value)}
                 placeholder="How can I help you today?"
-                className="w-full bg-[#1e1f20] text-gray-100 rounded-full py-4 px-6 pr-12 border border-gray-700/50 focus:border-gray-500 focus:outline-none text-lg placeholder-gray-500 shadow-lg"
+                className="w-full bg-[#1e1f20] text-gray-100 rounded-full py-4 pl-14 pr-12 focus:outline-none focus:ring-1 focus:ring-gray-600 placeholder-gray-500 text-lg shadow-lg"
                 autoFocus
               />
               <button
                 type="submit"
-                disabled={!input.trim()}
-                className="absolute right-3 top-1/2 -translate-y-1/2 p-2 bg-blue-600 text-white rounded-full hover:bg-blue-700 disabled:opacity-50 disabled:hover:bg-blue-600 transition-colors"
+                disabled={isLoading}
+                className="absolute right-3 top-1/2 -translate-y-1/2 p-2 bg-gray-700 rounded-full hover:bg-gray-600 transition-colors disabled:opacity-50"
               >
-                <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" strokeWidth={2} stroke="currentColor" className="w-5 h-5">
-                  <path strokeLinecap="round" strokeLinejoin="round" d="M13.5 4.5 21 12m0 0-7.5 7.5M21 12H3" />
+                <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" strokeWidth={2} stroke="currentColor" className="w-5 h-5 text-white">
+                  <path strokeLinecap="round" strokeLinejoin="round" d="M13.5 4.5L21 12m0 0l-7.5 7.5M21 12H3" />
                 </svg>
               </button>
             </form>
@@ -105,8 +158,8 @@ export default function Home() {
                     )}
 
                     <div className={`text-base leading-relaxed ${msg.role === 'user'
-                        ? 'bg-[#2f2f2f] text-gray-100 px-5 py-3 rounded-3xl'
-                        : 'text-gray-300'
+                      ? 'bg-[#2f2f2f] text-gray-100 px-5 py-3 rounded-3xl'
+                      : 'text-gray-300'
                       }`}>
                       <ReactMarkdown
                         components={{
@@ -146,28 +199,49 @@ export default function Home() {
 
           {/* Input Area (Bottom) */}
           <div className="p-4 bg-[#131314]">
-            <div className="max-w-3xl mx-auto bg-[#1e1f20] rounded-full p-2 flex items-center gap-2 border border-gray-700/50 focus-within:border-gray-500 transition-colors">
-              <input
-                type="text"
-                value={input}
-                onChange={(e) => setInput(e.target.value)}
-                onKeyDown={(e) => e.key === 'Enter' && sendMessage()}
-                placeholder="How can I help you today?"
-                className="flex-1 bg-transparent border-none focus:ring-0 text-gray-100 px-4 py-2 outline-none placeholder-gray-500"
-                autoFocus
-              />
-              <button
-                onClick={() => sendMessage()}
-                disabled={isLoading || !input.trim()}
-                className="bg-blue-600 hover:bg-blue-700 text-white p-2 rounded-full disabled:opacity-50 disabled:hover:bg-blue-600 transition-colors"
-              >
-                <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" strokeWidth={2} stroke="currentColor" className="w-5 h-5">
-                  <path strokeLinecap="round" strokeLinejoin="round" d="M6 12L3.269 3.126A59.768 59.768 0 0121.485 12 59.77 59.77 0 013.27 20.876L5.999 12zm0 0h7.5" />
-                </svg>
-              </button>
-            </div>
-            <div className="text-center text-xs text-gray-600 mt-2">
-              This is a large language model. This is not a real diagnosis. The AI can make mistakes, please check important info.
+            <div className="max-w-3xl mx-auto">
+              <form onSubmit={sendMessage} className="relative">
+                {/* Upload Button (Chat) - Left Side */}
+                <label className="absolute left-2 top-1/2 -translate-y-1/2 p-2 cursor-pointer hover:bg-gray-700 rounded-full transition-colors z-10">
+                  <input type="file" accept=".pdf" className="hidden" onChange={handleFileUpload} disabled={isUploading} />
+                  {isUploading ? (
+                    <div className="w-5 h-5 border-2 border-gray-400 border-t-transparent rounded-full animate-spin"></div>
+                  ) : (
+                    <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" strokeWidth={2} stroke="currentColor" className="w-6 h-6 text-gray-400">
+                      <path strokeLinecap="round" strokeLinejoin="round" d="M12 4.5v15m7.5-7.5h-15" />
+                    </svg>
+                  )}
+                </label>
+
+                <input
+                  type="text"
+                  value={input}
+                  onChange={(e) => setInput(e.target.value)}
+                  placeholder="Ask a follow-up question..."
+                  className="w-full bg-[#1e1f20] text-gray-100 rounded-full py-4 pl-14 pr-12 focus:outline-none focus:ring-1 focus:ring-gray-600 placeholder-gray-500 text-lg shadow-lg"
+                />
+                <button
+                  type="submit"
+                  disabled={isLoading}
+                  className="absolute right-3 top-1/2 -translate-y-1/2 p-2 bg-gray-700 rounded-full hover:bg-gray-600 transition-colors disabled:opacity-50"
+                >
+                  <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" strokeWidth={2} stroke="currentColor" className="w-5 h-5 text-white">
+                    <path strokeLinecap="round" strokeLinejoin="round" d="M13.5 4.5L21 12m0 0l-7.5 7.5M21 12H3" />
+                  </svg>
+                </button>
+                <button
+                  type="submit"
+                  disabled={isLoading}
+                  className="absolute right-3 top-1/2 -translate-y-1/2 p-2 bg-gray-700 rounded-full hover:bg-gray-600 transition-colors disabled:opacity-50"
+                >
+                  <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" strokeWidth={2} stroke="currentColor" className="w-5 h-5 text-white">
+                    <path strokeLinecap="round" strokeLinejoin="round" d="M13.5 4.5L21 12m0 0l-7.5 7.5M21 12H3" />
+                  </svg>
+                </button>
+              </form>
+              <div className="mt-2 text-center text-xs text-gray-500">
+                This is a large language model. This is not a real diagnosis. The AI can make mistakes, please check important info.
+              </div>
             </div>
           </div>
         </>
