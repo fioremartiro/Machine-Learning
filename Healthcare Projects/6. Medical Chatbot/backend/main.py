@@ -27,12 +27,13 @@ app.add_middleware(
 pc = Pinecone(api_key=os.getenv("PINECONE_API_KEY"))
 index = pc.Index("medical-chatbot-local")
 
-# Embeddings (Local)
-embeddings = HuggingFaceEmbeddings(model_name="all-MiniLM-L6-v2")
-
 # Gemini (Direct SDK)
 genai.configure(api_key=os.getenv("GOOGLE_API_KEY"))
 model = genai.GenerativeModel('gemini-2.0-flash')
+
+# Embeddings (Gemini API - Lightweight)
+from langchain_google_genai import GoogleGenerativeAIEmbeddings
+embeddings = GoogleGenerativeAIEmbeddings(model="models/embedding-001")
 
 class ChatRequest(BaseModel):
     question: str
