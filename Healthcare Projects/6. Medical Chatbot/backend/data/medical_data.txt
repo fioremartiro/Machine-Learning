@@ -1,0 +1,88 @@
+# Cardiology Knowledge Base
+
+## 1. Heart Failure
+**Definition:** Heart failure is a chronic condition where the heart muscle doesn't pump blood as well as it should. Blood often backs up and causes fluid to build up in the lungs (congestive heart failure) and legs.
+**Symptoms:**
+- Shortness of breath (dyspnea) when you exert yourself or when you lie down.
+- Fatigue and weakness.
+- Swelling (edema) in your legs, ankles and feet.
+- Rapid or irregular heartbeat.
+- Reduced ability to exercise.
+- Persistent cough or wheezing with white or pink blood-tinged phlegm.
+- Increased need to urinate at night.
+- Swelling of your abdomen (ascites).
+- Very rapid weight gain from fluid retention.
+**Causes:** Coronary artery disease, Heart attack, High blood pressure, Heart valve conditions, Damage to the heart muscle (cardiomyopathy), Myocarditis, Congenital heart defects, Heart arrhythmias.
+**Treatments:**
+- **Medications:** ACE inhibitors, Angiotensin II receptor blockers, Beta blockers, Diuretics, Aldosterone antagonists.
+- **Surgery:** Coronary bypass surgery, Heart valve repair or replacement, Implantable cardioverter-defibrillators (ICDs), Cardiac resynchronization therapy (CRT), Ventricular assist devices (VADs), Heart transplant.
+- **Lifestyle:** Smoking cessation, Weight management, Low-salt diet, Managing stress.
+
+## 2. Coronary Artery Disease (CAD)
+**Definition:** CAD is the most common type of heart disease. It happens when the arteries that supply blood to heart muscle become hardened and narrowed due to buildup of cholesterol and other material, called plaque (atherosclerosis).
+**Symptoms:**
+- Angina (chest pain or discomfort).
+- Shortness of breath.
+- Heart attack (if an artery becomes completely blocked).
+**Risk Factors:** High cholesterol, High blood pressure, Smoking, Diabetes, Obesity, Lack of exercise, Unhealthy diet.
+**Treatments:**
+- **Lifestyle Changes:** Heart-healthy diet, Exercise, Quitting smoking.
+- **Medications:** Cholesterol-modifying medications (Statins), Aspirin, Beta blockers, Calcium channel blockers, Ranolazine, Nitroglycerin.
+- **Procedures:** Angioplasty and stent placement, Coronary artery bypass surgery (CABG).
+
+## 3. Arrhythmias (Heart Rhythm Problems)
+**Definition:** An arrhythmia is an improper beating of the heart, whether irregular, too fast (tachycardia), or too slow (bradycardia).
+**Common Types:**
+- **Atrial Fibrillation (AFib):** A chaotic, quivering heartbeat that can lead to blood clots, stroke, heart failure.
+- **Bradycardia:** A slow heartbeat (fewer than 60 beats per minute).
+- **Tachycardia:** A fast heartbeat (more than 100 beats per minute).
+- **Ventricular Fibrillation:** A rapid, chaotic heart rhythm that causes the lower heart chambers (ventricles) to quiver uselessly instead of pumping blood. This is life-threatening.
+**Symptoms:** Fluttering in the chest, Racing heartbeat, Slow heartbeat, Chest pain, Shortness of breath, Dizziness, Fainting (syncope).
+**Treatments:**
+- **Vagal maneuvers:** Specific movements to slow heart rate.
+- **Medications:** Anti-arrhythmic drugs, Blood thinners (for AFib).
+- **Procedures:** Cardioversion (electrical shock), Catheter ablation, Pacemaker, Implantable cardioverter-defibrillator (ICD).
+
+## 4. Hypertension (High Blood Pressure)
+**Definition:** A common condition in which the long-term force of the blood against your artery walls is high enough that it may eventually cause health problems, such as heart disease.
+**Readings:**
+- **Normal:** Less than 120/80 mm Hg.
+- **Elevated:** 120-129 / less than 80.
+- **Stage 1 Hypertension:** 130-139 / 80-89.
+- **Stage 2 Hypertension:** 140 or higher / 90 or higher.
+**Symptoms:** Most people have no signs or symptoms. Some may have headaches, shortness of breath, or nosebleeds, but these aren't specific.
+**Complications:** Heart attack, Stroke, Aneurysm, Heart failure, Kidney problems, Eye problems.
+**Treatments:**
+- **Lifestyle:** DASH diet (low salt), Exercise, Weight loss, Limiting alcohol.
+- **Medications:** Thiazide diuretics, ACE inhibitors, ARBs, Calcium channel blockers.
+
+## 5. Myocardial Infarction (Heart Attack)
+**Definition:** A heart attack occurs when the flow of blood to the heart is blocked. The blockage is most often a buildup of fat, cholesterol and other substances, which form a plaque in the arteries that feed the heart (coronary arteries).
+**Symptoms:**
+- Pressure, tightness, pain, or a squeezing or aching sensation in your chest or arms that may spread to your neck, jaw or back.
+- Nausea, indigestion, heartburn or abdominal pain.
+- Shortness of breath.
+- Cold sweat.
+- Fatigue.
+- Lightheadedness or sudden dizziness.
+**Immediate Action:** Call emergency services (911) immediately. Chew aspirin if advised.
+**Treatments:**
+- **Medications:** Aspirin, Thrombolytics (clot busters), Antiplatelet agents, Pain relievers, Nitroglycerin, Beta blockers, ACE inhibitors.
+- **Procedures:** Coronary angioplasty and stenting, Coronary artery bypass surgery.
+
+## 6. Common Procedures
+**Angioplasty and Stenting:**
+- **Procedure:** A thin tube (catheter) with a balloon is inserted into a blocked artery. The balloon is inflated to widen the artery. A small wire mesh tube (stent) is often placed to keep the artery open.
+- **Use:** To treat CAD and heart attacks.
+
+**Coronary Artery Bypass Grafting (CABG):**
+- **Procedure:** A healthy blood vessel is taken from your leg, arm or chest and connected to the other arteries in your heart so that blood bypasses the diseased or blocked area.
+- **Use:** For severe CAD involving multiple arteries.
+
+**Echocardiogram:**
+- **Procedure:** Uses sound waves to produce images of your heart.
+- **Use:** To check how your heart's chambers and valves are pumping blood.
+
+**Electrocardiogram (ECG or EKG):**
+- **Procedure:** Records the electrical signals in your heart.
+- **Use:** To detect heart rhythm problems and heart attacks.
