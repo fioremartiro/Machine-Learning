@@ -87,20 +87,26 @@ export default function Home() {
           <div className="flex-1 overflow-y-auto">
             <div className="max-w-3xl mx-auto p-4 space-y-8 py-10">
               {messages.map((msg, index) => (
-                <div key={index} className={`flex gap-4 ${msg.role === 'user' ? 'flex-row-reverse' : ''}`}>
+                <div key={index} className={`flex gap-4 ${msg.role === 'user' ? 'justify-end' : ''}`}>
 
-                  {/* Avatar */}
-                  <div className={`w-8 h-8 rounded-full flex items-center justify-center flex-shrink-0 ${msg.role === 'user' ? 'bg-gray-700' : 'bg-blue-600'
-                    }`}>
-                    {msg.role === 'user' ? 'U' : 'AI'}
-                  </div>
+                  {/* Avatar - Only for AI */}
+                  {msg.role === 'assistant' && (
+                    <div className="w-8 h-8 rounded-full bg-blue-600 flex items-center justify-center flex-shrink-0 mt-1">
+                      AI
+                    </div>
+                  )}
 
                   {/* Message Content */}
-                  <div className={`flex-1 space-y-2 ${msg.role === 'user' ? 'text-right' : ''}`}>
-                    <div className="text-sm text-gray-400 font-medium">
-                      {msg.role === 'user' ? 'You' : 'Assistant'}
-                    </div>
-                    <div className={`text-base leading-relaxed ${msg.role === 'user' ? 'text-gray-100' : 'text-gray-300'
+                  <div className={`flex flex-col ${msg.role === 'user' ? 'items-end' : 'items-start'} max-w-[80%]`}>
+
+                    {/* Name Label - Only for AI */}
+                    {msg.role === 'assistant' && (
+                      <div className="text-sm text-gray-400 font-medium mb-1">Assistant</div>
+                    )}
+
+                    <div className={`text-base leading-relaxed ${msg.role === 'user'
+                        ? 'bg-[#2f2f2f] text-gray-100 px-5 py-3 rounded-3xl'
+                        : 'text-gray-300'
                       }`}>
                       <ReactMarkdown
                         components={{
@@ -123,7 +129,7 @@ export default function Home() {
 
               {isLoading && (
                 <div className="flex gap-4">
-                  <div className="w-8 h-8 rounded-full bg-blue-600 flex items-center justify-center flex-shrink-0">AI</div>
+                  <div className="w-8 h-8 rounded-full bg-blue-600 flex items-center justify-center flex-shrink-0 mt-1">AI</div>
                   <div className="flex-1 space-y-2">
                     <div className="text-sm text-gray-400 font-medium">Assistant</div>
                     <div className="flex gap-1 items-center h-6">
