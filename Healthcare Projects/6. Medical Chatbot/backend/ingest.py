@@ -47,17 +47,40 @@ loader = TextLoader("data/medical_data.txt")
 docs = loader.load()
 texts = [d.page_content for d in docs]
 
+# Prepare IDs and metadata for all texts
+ids = [str(i) for i in range(len(texts))]
+metadatas = [{"text": text} for text in texts]
+
 # 4. Embed & Upload
-print("Embedding data...")
+print("Embedding and Uploading data in batches...")
 embeddings_model = GoogleGenerativeAIEmbeddings(model="models/embedding-001")
-vectors = embeddings_model.embed_documents(texts)
 
-print("Uploading to Pinecone...")
-# Prepare data for upload (id, values, metadata)
-to_upsert = []
-for i, (text, vector) in enumerate(zip(texts, vectors)):
-    to_upsert.append((str(i), vector, {"text": text}))
+batch_size = 10  # Process 10 chunks at a time to respect rate limits
+total_batches = len(texts) // batch_size + (1 if len(texts) % batch_size > 0 else 0)
 
-index.upsert(vectors=to_upsert)
+for i in range(0, len(texts), batch_size):
+    batch_texts = texts[i:i + batch_size]
+    batch_metadatas = metadatas[i:i + batch_size]
+    batch_ids = ids[i:i + batch_size]
+    
+    print(f"Processing batch {i // batch_size + 1}/{total_batches}...")
+    
+    try:
+        # Embed batch
+        vectors = embeddings_model.embed_documents(batch_texts)
+        
+        # Zip together for Pinecone
+        to_upsert = list(zip(batch_ids, vectors, batch_metadatas))
+        
+        # Upload batch
+        index.upsert(vectors=to_upsert)
+        
+        # Sleep to respect rate limits (Free tier is ~15-60 requests/min)
+        time.sleep(2) 
+        
+    except Exception as e:
+        print(f"Error processing batch {i // batch_size + 1}: {e}")
+        # Wait longer if we hit an error (likely rate limit)
+        time.sleep(10)
 
-print("Success! Data uploaded directly to Pinecone.")
+print("Ingestion complete!")
