@@ -91,20 +91,7 @@ export default function Home() {
         <div className="flex items-center gap-2">
           <h1 className="text-lg font-medium text-gray-200">Cardiology AI Assistant</h1>
         </div>
-        <div className="flex flex-col items-end gap-1">
-          <div className="text-[10px] text-gray-500 max-w-[250px] text-right leading-tight">
-            This is a large language model. This is not a real diagnosis. The AI can make mistakes, please check important info.
-          </div>
-          <button
-            onClick={() => setIsPrivacyOpen(true)}
-            className="flex items-center gap-1 text-xs text-blue-400 hover:text-blue-300 transition-colors"
-          >
-            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20" fill="currentColor" className="w-3 h-3">
-              <path fillRule="evenodd" d="M10 1a4.5 4.5 0 00-4.5 4.5V9H5a2 2 0 00-2 2v6a2 2 0 002 2h10a2 2 0 002-2v-6a2 2 0 00-2-2h-.5V5.5A4.5 4.5 0 0010 1zm3 8V5.5a3 3 0 10-6 0V9h6z" clipRule="evenodd" />
-            </svg>
-            Privacy & Data
-          </button>
-        </div>
+        <div className="text-xs text-gray-500">Powered by Gemini 2.0</div>
       </header>
 
       {/* Privacy Modal */}
@@ -147,7 +134,7 @@ export default function Home() {
         /* Empty State - Centered Hero */
         <div className="flex-1 flex flex-col items-center justify-center p-4 pb-60">
           <div className="text-6xl mb-6 animate-heartbeat">🫀</div>
-          <h2 className="text-3xl font-medium text-gray-200 mb-8">How's your heart feeling today?</h2>
+          <h2 className="text-xl md:text-3xl font-medium text-gray-200 mb-8 text-center whitespace-nowrap">How's your heart feeling today?</h2>
           <div className="w-full max-w-2xl">
             <form onSubmit={sendMessage} className="relative">
               {/* Upload Button (Hero) - Left Side */}
@@ -180,8 +167,19 @@ export default function Home() {
                 </svg>
               </button>
             </form>
-            <div className="text-center text-xs text-gray-500 mt-4">
-              This is a large language model. This is not a real diagnosis. The AI can make mistakes, please check important info.
+            <div className="flex flex-col items-center gap-2 mt-4">
+              <div className="text-center text-xs text-gray-500">
+                This is a large language model. This is not a real diagnosis. The AI can make mistakes, please check important info.
+              </div>
+              <button
+                onClick={() => setIsPrivacyOpen(true)}
+                className="flex items-center gap-1 text-xs text-gray-600 hover:text-gray-400 transition-colors"
+              >
+                <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20" fill="currentColor" className="w-3 h-3">
+                  <path fillRule="evenodd" d="M10 1a4.5 4.5 0 00-4.5 4.5V9H5a2 2 0 00-2 2v6a2 2 0 002 2h10a2 2 0 002-2v-6a2 2 0 00-2-2h-.5V5.5A4.5 4.5 0 0010 1zm3 8V5.5a3 3 0 10-6 0V9h6z" clipRule="evenodd" />
+                </svg>
+                Privacy & Data
+              </button>
             </div>
           </div>
         </div>
@@ -290,8 +288,19 @@ export default function Home() {
                   </svg>
                 </button>
               </form>
-              <div className="mt-2 text-center text-xs text-gray-500">
-                This is a large language model. This is not a real diagnosis. The AI can make mistakes, please check important info.
+              <div className="flex flex-col items-center gap-2 mt-2">
+                <div className="text-center text-xs text-gray-500">
+                  This is a large language model. This is not a real diagnosis. The AI can make mistakes, please check important info.
+                </div>
+                <button
+                  onClick={() => setIsPrivacyOpen(true)}
+                  className="flex items-center gap-1 text-xs text-gray-600 hover:text-gray-400 transition-colors"
+                >
+                  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20" fill="currentColor" className="w-3 h-3">
+                    <path fillRule="evenodd" d="M10 1a4.5 4.5 0 00-4.5 4.5V9H5a2 2 0 00-2 2v6a2 2 0 002 2h10a2 2 0 002-2v-6a2 2 0 00-2-2h-.5V5.5A4.5 4.5 0 0010 1zm3 8V5.5a3 3 0 10-6 0V9h6z" clipRule="evenodd" />
+                  </svg>
+                  Privacy & Data
+                </button>
               </div>
             </div>
           </div>
