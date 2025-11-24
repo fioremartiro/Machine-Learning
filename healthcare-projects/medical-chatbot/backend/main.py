@@ -22,6 +22,10 @@ app.add_middleware(
     allow_headers=["*"],
 )
 
+@app.get("/")
+def read_root():
+    return {"message": "Cardiology AI Backend is Running!"}
+
 # Initialize Tools
 # Pinecone
 pc = Pinecone(api_key=os.getenv("PINECONE_API_KEY"))

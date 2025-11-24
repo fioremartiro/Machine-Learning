@@ -1,0 +1,32 @@
+[02:12:47.596] Server  ERROR   Error: Cannot find module 'next/dist/compiled/cookie'
+Require stack:
+- /Users/fiorellamartiro/Documents/GitHub/Machine-Learning/Healthcare Projects/6. Medical Chatbot/frontend/node_modules/next/dist/server/api-utils/get-cookie-parser.js
+- /Users/fiorellamartiro/Documents/GitHub/Machine-Learning/Healthcare Projects/6. Medical Chatbot/frontend/node_modules/next/dist/shared/lib/router/utils/prepare-destination.js
+- /Users/fiorellamartiro/Documents/GitHub/Machine-Learning/Healthcare Projects/6. Medical Chatbot/frontend/node_modules/next/dist/shared/lib/router/utils/middleware-route-matcher.js
+- /Users/fiorellamartiro/Documents/GitHub/Machine-Learning/Healthcare Projects/6. Medical Chatbot/frontend/node_modules/next/dist/server/lib/router-utils/filesystem.js
+- /Users/fiorellamartiro/Documents/GitHub/Machine-Learning/Healthcare Projects/6. Medical Chatbot/frontend/node_modules/next/dist/server/lib/router-server.js
+- /Users/fiorellamartiro/Documents/GitHub/Machine-Learning/Healthcare Projects/6. Medical Chatbot/frontend/node_modules/next/dist/server/lib/start-server.js
+[02:12:47.609] Server  ERROR   Error: Cannot find module 'next/dist/compiled/cookie'
+Require stack:
+- /Users/fiorellamartiro/Documents/GitHub/Machine-Learning/Healthcare Projects/6. Medical Chatbot/frontend/node_modules/next/dist/server/api-utils/get-cookie-parser.js
+- /Users/fiorellamartiro/Documents/GitHub/Machine-Learning/Healthcare Projects/6. Medical Chatbot/frontend/node_modules/next/dist/shared/lib/router/utils/prepare-destination.js
+- /Users/fiorellamartiro/Documents/GitHub/Machine-Learning/Healthcare Projects/6. Medical Chatbot/frontend/node_modules/next/dist/shared/lib/router/utils/middleware-route-matcher.js
+- /Users/fiorellamartiro/Documents/GitHub/Machine-Learning/Healthcare Projects/6. Medical Chatbot/frontend/node_modules/next/dist/server/lib/router-utils/filesystem.js
+- /Users/fiorellamartiro/Documents/GitHub/Machine-Learning/Healthcare Projects/6. Medical Chatbot/frontend/node_modules/next/dist/server/lib/router-server.js
+- /Users/fiorellamartiro/Documents/GitHub/Machine-Learning/Healthcare Projects/6. Medical Chatbot/frontend/node_modules/next/dist/server/lib/start-server.js
+[02:12:47.644] Server  ERROR   Error: Cannot find module 'next/dist/compiled/cookie'
+Require stack:
+- /Users/fiorellamartiro/Documents/GitHub/Machine-Learning/Healthcare Projects/6. Medical Chatbot/frontend/node_modules/next/dist/server/api-utils/get-cookie-parser.js
+- /Users/fiorellamartiro/Documents/GitHub/Machine-Learning/Healthcare Projects/6. Medical Chatbot/frontend/node_modules/next/dist/shared/lib/router/utils/prepare-destination.js
+- /Users/fiorellamartiro/Documents/GitHub/Machine-Learning/Healthcare Projects/6. Medical Chatbot/frontend/node_modules/next/dist/shared/lib/router/utils/middleware-route-matcher.js
+- /Users/fiorellamartiro/Documents/GitHub/Machine-Learning/Healthcare Projects/6. Medical Chatbot/frontend/node_modules/next/dist/server/lib/router-utils/filesystem.js
+- /Users/fiorellamartiro/Documents/GitHub/Machine-Learning/Healthcare Projects/6. Medical Chatbot/frontend/node_modules/next/dist/server/lib/router-server.js
+- /Users/fiorellamartiro/Documents/GitHub/Machine-Learning/Healthcare Projects/6. Medical Chatbot/frontend/node_modules/next/dist/server/lib/start-server.js
+[02:12:47.656] Server  ERROR   Error: Cannot find module 'next/dist/compiled/cookie'
+Require stack:
+- /Users/fiorellamartiro/Documents/GitHub/Machine-Learning/Healthcare Projects/6. Medical Chatbot/frontend/node_modules/next/dist/server/api-utils/get-cookie-parser.js
+- /Users/fiorellamartiro/Documents/GitHub/Machine-Learning/Healthcare Projects/6. Medical Chatbot/frontend/node_modules/next/dist/shared/lib/router/utils/prepare-destination.js
+- /Users/fiorellamartiro/Documents/GitHub/Machine-Learning/Healthcare Projects/6. Medical Chatbot/frontend/node_modules/next/dist/shared/lib/router/utils/middleware-route-matcher.js
+- /Users/fiorellamartiro/Documents/GitHub/Machine-Learning/Healthcare Projects/6. Medical Chatbot/frontend/node_modules/next/dist/server/lib/router-utils/filesystem.js
+- /Users/fiorellamartiro/Documents/GitHub/Machine-Learning/Healthcare Projects/6. Medical Chatbot/frontend/node_modules/next/dist/server/lib/router-server.js
+- /Users/fiorellamartiro/Documents/GitHub/Machine-Learning/Healthcare Projects/6. Medical Chatbot/frontend/node_modules/next/dist/server/lib/start-server.js
