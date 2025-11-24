@@ -82,6 +82,8 @@ export default function Home() {
     }
   };
 
+  const [isPrivacyOpen, setIsPrivacyOpen] = useState(false);
+
   return (
     <div className="flex flex-col h-screen bg-[#131314] text-gray-100 font-sans">
       {/* Header - Always visible */}
@@ -89,8 +91,57 @@ export default function Home() {
         <div className="flex items-center gap-2">
           <h1 className="text-lg font-medium text-gray-200">Cardiology AI Assistant</h1>
         </div>
-        <div className="text-xs text-gray-500">Powered by Gemini 2.0</div>
+        <div className="flex flex-col items-end gap-1">
+          <div className="text-[10px] text-gray-500 max-w-[250px] text-right leading-tight">
+            This is a large language model. This is not a real diagnosis. The AI can make mistakes, please check important info.
+          </div>
+          <button
+            onClick={() => setIsPrivacyOpen(true)}
+            className="flex items-center gap-1 text-xs text-blue-400 hover:text-blue-300 transition-colors"
+          >
+            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20" fill="currentColor" className="w-3 h-3">
+              <path fillRule="evenodd" d="M10 1a4.5 4.5 0 00-4.5 4.5V9H5a2 2 0 00-2 2v6a2 2 0 002 2h10a2 2 0 002-2v-6a2 2 0 00-2-2h-.5V5.5A4.5 4.5 0 0010 1zm3 8V5.5a3 3 0 10-6 0V9h6z" clipRule="evenodd" />
+            </svg>
+            Privacy & Data
+          </button>
+        </div>
       </header>
+
+      {/* Privacy Modal */}
+      {isPrivacyOpen && (
+        <div className="fixed inset-0 bg-black/80 z-50 flex items-center justify-center p-4 backdrop-blur-sm">
+          <div className="bg-[#1e1f20] rounded-2xl max-w-md w-full p-6 shadow-2xl border border-gray-700">
+            <div className="flex items-center gap-3 mb-4 text-yellow-500">
+              <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor" className="w-8 h-8">
+                <path fillRule="evenodd" d="M12.516 2.17a.75.75 0 00-1.032 0 11.209 11.209 0 01-7.877 3.08.75.75 0 00-.722.515A12.74 12.74 0 002.25 9.75c0 5.942 4.064 10.933 9.563 12.348a.749.749 0 00.374 0c5.499-1.415 9.563-6.406 9.563-12.348 0-1.352-.272-2.636-.759-3.808a.75.75 0 00-.722-.515 11.208 11.208 0 01-7.877-3.08zM12 13.25a.75.75 0 000-1.5.75.75 0 000 1.5zM12 15.75a.75.75 0 000-1.5.75.75 0 000 1.5z" clipRule="evenodd" />
+              </svg>
+              <h2 className="text-xl font-bold text-gray-100">Privacy Notice</h2>
+            </div>
+
+            <div className="space-y-4 text-sm text-gray-300 leading-relaxed">
+              <p>
+                <strong className="text-gray-100">1. AI Processing:</strong> Your messages are processed by Google Gemini AI. This is a cloud-based service.
+              </p>
+              <p>
+                <strong className="text-gray-100">2. No Storage:</strong> We do not save your chat history after you close this window.
+              </p>
+              <p>
+                <strong className="text-gray-100">3. Do Not Share:</strong> Please do <span className="text-red-400 font-bold">NOT</span> share real names, addresses, or private medical records.
+              </p>
+              <p>
+                <strong className="text-gray-100">4. Educational Use Only:</strong> This tool is for information purposes only and is not a substitute for professional medical advice.
+              </p>
+            </div>
+
+            <button
+              onClick={() => setIsPrivacyOpen(false)}
+              className="mt-6 w-full bg-blue-600 hover:bg-blue-500 text-white font-medium py-3 rounded-xl transition-colors"
+            >
+              I Understand
+            </button>
+          </div>
+        </div>
+      )}
 
       {messages.length === 0 ? (
         /* Empty State - Centered Hero */
