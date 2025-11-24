@@ -96,14 +96,14 @@ export default function Home() {
         /* Empty State - Centered Hero */
         <div className="flex-1 flex flex-col items-center justify-center p-4 pb-60">
           <div className="text-6xl mb-6 animate-heartbeat">🫀</div>
-          <h2 className="text-3xl font-medium text-gray-200 mb-8">I'm your Cardiology AI Assistant</h2>
+          <h2 className="text-3xl font-medium text-gray-200 mb-8">How's your heart feeling today?</h2>
           <div className="w-full max-w-2xl">
             <form onSubmit={sendMessage} className="relative">
               {/* Upload Button (Hero) - Left Side */}
               <label className="absolute left-2 top-1/2 -translate-y-1/2 p-2 cursor-pointer hover:bg-gray-700 rounded-full transition-colors z-10">
-                <input type="file" accept=".pdf" className="hidden" onChange={handleFileUpload} disabled={isUploading} />
+                <input type="file" accept="application/pdf" className="hidden" onChange={handleFileUpload} disabled={isUploading} />
                 {isUploading ? (
-                  <div className="w-5 h-5 border-2 border-gray-400 border-t-transparent rounded-full animate-spin"></div>
+                  <div className="w-5 h-5 border-2 border-gray-400 border-t-transparent rounded-full animate-spin" />
                 ) : (
                   <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" strokeWidth={2} stroke="currentColor" className="w-6 h-6 text-gray-400">
                     <path strokeLinecap="round" strokeLinejoin="round" d="M12 4.5v15m7.5-7.5h-15" />
@@ -115,16 +115,16 @@ export default function Home() {
                 type="text"
                 value={input}
                 onChange={(e) => setInput(e.target.value)}
-                placeholder="How can I help you today?"
-                className="w-full bg-[#1e1f20] text-gray-100 rounded-full py-4 pl-14 pr-12 focus:outline-none focus:ring-1 focus:ring-gray-600 placeholder-gray-500 text-lg shadow-lg"
+                placeholder="Ask anything"
+                className="w-full bg-[#2f2f2f] text-gray-100 rounded-3xl pl-14 pr-12 py-4 focus:outline-none focus:ring-1 focus:ring-gray-500 placeholder-gray-400 text-lg shadow-lg"
                 autoFocus
               />
               <button
                 type="submit"
-                disabled={isLoading}
-                className="absolute right-3 top-1/2 -translate-y-1/2 p-2 bg-gray-700 rounded-full hover:bg-gray-600 transition-colors disabled:opacity-50"
+                disabled={isLoading || !input.trim()}
+                className="absolute right-3 top-1/2 -translate-y-1/2 p-2 bg-gray-600 rounded-full text-white disabled:opacity-50 disabled:cursor-not-allowed hover:bg-gray-500 transition-colors"
               >
-                <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" strokeWidth={2} stroke="currentColor" className="w-5 h-5 text-white">
+                <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" strokeWidth={2} stroke="currentColor" className="w-5 h-5">
                   <path strokeLinecap="round" strokeLinejoin="round" d="M13.5 4.5L21 12m0 0l-7.5 7.5M21 12H3" />
                 </svg>
               </button>
