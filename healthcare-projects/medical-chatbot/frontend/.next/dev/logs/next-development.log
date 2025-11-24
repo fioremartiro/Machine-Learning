@@ -1,0 +1,56 @@
+[16:29:39.445] Server  ERROR    ⨯ Error: Cannot find module 'next/dist/client/components/builtin/global-not-found'
+Require stack:
+- /Users/fiorellamartiro/Documents/GitHub/Machine-Learning/healthcare-projects/medical-chatbot/frontend/node_modules/next/dist/server/dev/on-demand-entry-handler.js
+- /Users/fiorellamartiro/Documents/GitHub/Machine-Learning/healthcare-projects/medical-chatbot/frontend/node_modules/next/dist/server/dev/hot-reloader-turbopack.js
+- /Users/fiorellamartiro/Documents/GitHub/Machine-Learning/healthcare-projects/medical-chatbot/frontend/node_modules/next/dist/server/lib/router-utils/setup-dev-bundler.js
+- /Users/fiorellamartiro/Documents/GitHub/Machine-Learning/healthcare-projects/medical-chatbot/frontend/node_modules/next/dist/server/lib/router-server.js
+- /Users/fiorellamartiro/Documents/GitHub/Machine-Learning/healthcare-projects/medical-chatbot/frontend/node_modules/next/dist/server/lib/start-server.js
+[16:29:39.465] Server  ERROR   Error: Cannot find module 'next/dist/pages/_error'
+Require stack:
+- /Users/fiorellamartiro/Documents/GitHub/Machine-Learning/healthcare-projects/medical-chatbot/frontend/node_modules/next/dist/server/dev/on-demand-entry-handler.js
+- /Users/fiorellamartiro/Documents/GitHub/Machine-Learning/healthcare-projects/medical-chatbot/frontend/node_modules/next/dist/server/dev/hot-reloader-turbopack.js
+- /Users/fiorellamartiro/Documents/GitHub/Machine-Learning/healthcare-projects/medical-chatbot/frontend/node_modules/next/dist/server/lib/router-utils/setup-dev-bundler.js
+- /Users/fiorellamartiro/Documents/GitHub/Machine-Learning/healthcare-projects/medical-chatbot/frontend/node_modules/next/dist/server/lib/router-server.js
+- /Users/fiorellamartiro/Documents/GitHub/Machine-Learning/healthcare-projects/medical-chatbot/frontend/node_modules/next/dist/server/lib/start-server.js
+[16:29:39.483] Server  ERROR    ⨯ Error: Cannot find module 'next/dist/pages/_error'
+Require stack:
+- /Users/fiorellamartiro/Documents/GitHub/Machine-Learning/healthcare-projects/medical-chatbot/frontend/node_modules/next/dist/server/dev/on-demand-entry-handler.js
+- /Users/fiorellamartiro/Documents/GitHub/Machine-Learning/healthcare-projects/medical-chatbot/frontend/node_modules/next/dist/server/dev/hot-reloader-turbopack.js
+- /Users/fiorellamartiro/Documents/GitHub/Machine-Learning/healthcare-projects/medical-chatbot/frontend/node_modules/next/dist/server/lib/router-utils/setup-dev-bundler.js
+- /Users/fiorellamartiro/Documents/GitHub/Machine-Learning/healthcare-projects/medical-chatbot/frontend/node_modules/next/dist/server/lib/router-server.js
+- /Users/fiorellamartiro/Documents/GitHub/Machine-Learning/healthcare-projects/medical-chatbot/frontend/node_modules/next/dist/server/lib/start-server.js
+[16:29:39.513] Server  ERROR   Error: Cannot find module 'next/dist/pages/_error'
+Require stack:
+- /Users/fiorellamartiro/Documents/GitHub/Machine-Learning/healthcare-projects/medical-chatbot/frontend/node_modules/next/dist/server/dev/on-demand-entry-handler.js
+- /Users/fiorellamartiro/Documents/GitHub/Machine-Learning/healthcare-projects/medical-chatbot/frontend/node_modules/next/dist/server/dev/hot-reloader-turbopack.js
+- /Users/fiorellamartiro/Documents/GitHub/Machine-Learning/healthcare-projects/medical-chatbot/frontend/node_modules/next/dist/server/lib/router-utils/setup-dev-bundler.js
+- /Users/fiorellamartiro/Documents/GitHub/Machine-Learning/healthcare-projects/medical-chatbot/frontend/node_modules/next/dist/server/lib/router-server.js
+- /Users/fiorellamartiro/Documents/GitHub/Machine-Learning/healthcare-projects/medical-chatbot/frontend/node_modules/next/dist/server/lib/start-server.js
+[16:29:39.552] Server  ERROR    ⨯ Error: Cannot find module 'next/dist/client/components/builtin/global-not-found'
+Require stack:
+- /Users/fiorellamartiro/Documents/GitHub/Machine-Learning/healthcare-projects/medical-chatbot/frontend/node_modules/next/dist/server/dev/on-demand-entry-handler.js
+- /Users/fiorellamartiro/Documents/GitHub/Machine-Learning/healthcare-projects/medical-chatbot/frontend/node_modules/next/dist/server/dev/hot-reloader-turbopack.js
+- /Users/fiorellamartiro/Documents/GitHub/Machine-Learning/healthcare-projects/medical-chatbot/frontend/node_modules/next/dist/server/lib/router-utils/setup-dev-bundler.js
+- /Users/fiorellamartiro/Documents/GitHub/Machine-Learning/healthcare-projects/medical-chatbot/frontend/node_modules/next/dist/server/lib/router-server.js
+- /Users/fiorellamartiro/Documents/GitHub/Machine-Learning/healthcare-projects/medical-chatbot/frontend/node_modules/next/dist/server/lib/start-server.js
+[16:29:39.591] Server  ERROR   Error: Cannot find module 'next/dist/pages/_error'
+Require stack:
+- /Users/fiorellamartiro/Documents/GitHub/Machine-Learning/healthcare-projects/medical-chatbot/frontend/node_modules/next/dist/server/dev/on-demand-entry-handler.js
+- /Users/fiorellamartiro/Documents/GitHub/Machine-Learning/healthcare-projects/medical-chatbot/frontend/node_modules/next/dist/server/dev/hot-reloader-turbopack.js
+- /Users/fiorellamartiro/Documents/GitHub/Machine-Learning/healthcare-projects/medical-chatbot/frontend/node_modules/next/dist/server/lib/router-utils/setup-dev-bundler.js
+- /Users/fiorellamartiro/Documents/GitHub/Machine-Learning/healthcare-projects/medical-chatbot/frontend/node_modules/next/dist/server/lib/router-server.js
+- /Users/fiorellamartiro/Documents/GitHub/Machine-Learning/healthcare-projects/medical-chatbot/frontend/node_modules/next/dist/server/lib/start-server.js
+[16:29:39.619] Server  ERROR    ⨯ Error: Cannot find module 'next/dist/pages/_error'
+Require stack:
+- /Users/fiorellamartiro/Documents/GitHub/Machine-Learning/healthcare-projects/medical-chatbot/frontend/node_modules/next/dist/server/dev/on-demand-entry-handler.js
+- /Users/fiorellamartiro/Documents/GitHub/Machine-Learning/healthcare-projects/medical-chatbot/frontend/node_modules/next/dist/server/dev/hot-reloader-turbopack.js
+- /Users/fiorellamartiro/Documents/GitHub/Machine-Learning/healthcare-projects/medical-chatbot/frontend/node_modules/next/dist/server/lib/router-utils/setup-dev-bundler.js
+- /Users/fiorellamartiro/Documents/GitHub/Machine-Learning/healthcare-projects/medical-chatbot/frontend/node_modules/next/dist/server/lib/router-server.js
+- /Users/fiorellamartiro/Documents/GitHub/Machine-Learning/healthcare-projects/medical-chatbot/frontend/node_modules/next/dist/server/lib/start-server.js
+[16:29:39.637] Server  ERROR   Error: Cannot find module 'next/dist/pages/_error'
+Require stack:
+- /Users/fiorellamartiro/Documents/GitHub/Machine-Learning/healthcare-projects/medical-chatbot/frontend/node_modules/next/dist/server/dev/on-demand-entry-handler.js
+- /Users/fiorellamartiro/Documents/GitHub/Machine-Learning/healthcare-projects/medical-chatbot/frontend/node_modules/next/dist/server/dev/hot-reloader-turbopack.js
+- /Users/fiorellamartiro/Documents/GitHub/Machine-Learning/healthcare-projects/medical-chatbot/frontend/node_modules/next/dist/server/lib/router-utils/setup-dev-bundler.js
+- /Users/fiorellamartiro/Documents/GitHub/Machine-Learning/healthcare-projects/medical-chatbot/frontend/node_modules/next/dist/server/lib/router-server.js
+- /Users/fiorellamartiro/Documents/GitHub/Machine-Learning/healthcare-projects/medical-chatbot/frontend/node_modules/next/dist/server/lib/start-server.js
