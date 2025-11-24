@@ -2,7 +2,7 @@ import os
 import time
 from dotenv import load_dotenv
 from langchain_community.document_loaders import TextLoader
-from langchain_google_genai import GoogleGenerativeAIEmbeddings
+from langchain_community.embeddings import HuggingFaceEmbeddings
 from pinecone import Pinecone, ServerlessSpec
 
 # 1. Load Keys
@@ -18,11 +18,11 @@ if not PINECONE_API_KEY or not GOOGLE_API_KEY:
 pc = Pinecone(api_key=PINECONE_API_KEY)
 index_name = "medical-chatbot-local"
 
-# Check if index exists and delete it if dimensions are wrong (MiniLM was 384, Gemini is 768)
+# Check if index exists and delete it if dimensions are wrong (MiniLM is 384)
 if index_name in pc.list_indexes().names():
     print(f"Checking index '{index_name}'...")
     index_info = pc.describe_index(index_name)
-    if index_info.dimension != 768:
+    if index_info.dimension != 384:
         print("Deleting old index (wrong dimension)...")
         pc.delete_index(index_name)
         time.sleep(5) # Wait for deletion
@@ -31,7 +31,7 @@ if index_name not in pc.list_indexes().names():
     print(f"Creating index '{index_name}'...")
     pc.create_index(
         name=index_name,
-        dimension=768, # Gemini Embedding Size
+        dimension=384, # HuggingFace MiniLM Size
         metric="cosine",
         spec=ServerlessSpec(cloud="aws", region="us-east-1")
     )
@@ -53,7 +53,7 @@ metadatas = [{"text": text} for text in texts]
 
 # 4. Embed & Upload
 print("Embedding and Uploading data in batches...")
-embeddings_model = GoogleGenerativeAIEmbeddings(model="models/embedding-001")
+embeddings_model = HuggingFaceEmbeddings(model_name="all-MiniLM-L6-v2")
 
 batch_size = 10  # Process 10 chunks at a time to respect rate limits
 total_batches = len(texts) // batch_size + (1 if len(texts) % batch_size > 0 else 0)

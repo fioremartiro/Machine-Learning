@@ -36,8 +36,9 @@ genai.configure(api_key=os.getenv("GOOGLE_API_KEY"))
 model = genai.GenerativeModel('gemini-2.0-flash')
 
 # Embeddings (Gemini API - Lightweight)
-from langchain_google_genai import GoogleGenerativeAIEmbeddings
-embeddings = GoogleGenerativeAIEmbeddings(model="models/embedding-001")
+# Embeddings (HuggingFace - Local/Server-Side)
+from langchain_community.embeddings import HuggingFaceEmbeddings
+embeddings = HuggingFaceEmbeddings(model_name="all-MiniLM-L6-v2")
 
 class ChatRequest(BaseModel):
     question: str
