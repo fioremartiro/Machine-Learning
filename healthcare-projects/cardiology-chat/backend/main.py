@@ -38,7 +38,12 @@ model = genai.GenerativeModel('gemini-2.0-flash')
 # Embeddings (Gemini API - Lightweight)
 # Embeddings (HuggingFace - Local/Server-Side)
 from langchain_community.embeddings import HuggingFaceEmbeddings
-embeddings = HuggingFaceEmbeddings(model_name="all-MiniLM-L6-v2")
+# Use local cache to prevent re-downloading at runtime
+cache_dir = os.path.join(os.getcwd(), "model_cache")
+embeddings = HuggingFaceEmbeddings(
+    model_name="all-MiniLM-L6-v2",
+    cache_folder=cache_dir
+)
 
 class ChatRequest(BaseModel):
     question: str
