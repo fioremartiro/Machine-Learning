@@ -1,6 +1,21 @@
-backend/.env
-backend/venv/
-__pycache__/
-*.pyc
-.DS_Store
+# Environment Variables
 .env
+.env.local
+.env.*
+
+# Python
+__pycache__/
+*.py[cod]
+venv/
+.venv/
+env/
+
+# Node
+node_modules/
+.next/
+out/
+build/
+dist/
+
+# System
+.DS_Store
