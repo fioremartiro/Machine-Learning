@@ -23,6 +23,7 @@ app.add_middleware(
 )
 
 @app.get("/")
+@app.head("/")
 def read_root():
     return {"message": "Cardiology AI Backend is Running!"}
 
