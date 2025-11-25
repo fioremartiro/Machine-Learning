@@ -1,6 +1,6 @@
 # Cardiology AI Assistant 🫀
 
-A specialized **Retrieval-Augmented Generation (RAG)** application designed to provide accurate, context-aware answers to cardiology-related questions. This project utilizes a **Hybrid RAG Architecture**, combining the reasoning power of **Google Gemini 2.0** with the privacy and speed of **Local HuggingFace Embeddings**.
+A specialized **Retrieval-Augmented Generation (RAG)** application designed to provide accurate, context-aware answers to cardiology-related questions. This project utilizes a **Hybrid RAG Architecture**, combining the reasoning power of **Google Gemini 2.0** with the multilingual capabilities of **Google Gemini Embeddings**.
 
 ![License](https://img.shields.io/badge/license-MIT-blue.svg)
 ![Python](https://img.shields.io/badge/python-3.11+-blue.svg)
