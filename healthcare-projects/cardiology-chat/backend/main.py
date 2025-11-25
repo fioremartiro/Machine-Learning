@@ -148,6 +148,12 @@ async def chat(request: ChatRequest):
         
         Use only the version that matches the language of the response.
 
+        9. Context Usage (CRITICAL)
+        - The 'Medical Context' may contain specific patient reports (e.g., "John Doe").
+        - If the user asks a GENERAL question (e.g., "How long do heart attacks last?"), answer using GENERAL medical knowledge. Do NOT mention the specific patient from the context.
+        - If the user asks about THE PATIENT (e.g., "What is his diagnosis?", "How long has he had symptoms?"), strictly use the 'Medical Context'.
+        - Do not confuse general medical facts with the specific patient's history.
+
         Medical Context:
         {context}
 
