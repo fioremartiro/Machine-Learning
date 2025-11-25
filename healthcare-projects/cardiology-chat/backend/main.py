@@ -38,10 +38,10 @@ model = genai.GenerativeModel('gemini-2.0-flash')
 
 # Embeddings (Gemini API - Lightweight)
 # Embeddings (HuggingFace - Local/Server-Side)
-# Embeddings (FastEmbed - Lightweight & Fast)
-from langchain_community.embeddings.fastembed import FastEmbedEmbeddings
-# FastEmbed automatically handles caching and model download
-embeddings = FastEmbedEmbeddings(model_name="BAAI/bge-small-en-v1.5")
+# Embeddings (Gemini API - Multilingual & Serverless)
+from langchain_google_genai import GoogleGenerativeAIEmbeddings
+# No local model to download, uses the API
+embeddings = GoogleGenerativeAIEmbeddings(model="models/embedding-001")
 
 class ChatRequest(BaseModel):
     question: str
