@@ -41,7 +41,10 @@ model = genai.GenerativeModel('gemini-2.0-flash')
 # Embeddings (Gemini API - Multilingual & Serverless)
 from langchain_google_genai import GoogleGenerativeAIEmbeddings
 # No local model to download, uses the API
-embeddings = GoogleGenerativeAIEmbeddings(model="models/embedding-001")
+embeddings = GoogleGenerativeAIEmbeddings(
+    model="models/text-embedding-004",
+    google_api_key=os.getenv("GOOGLE_API_KEY")
+)
 
 class ChatRequest(BaseModel):
     question: str
@@ -77,47 +80,51 @@ async def upload_pdf(file: UploadFile = File(...)):
         return {"message": f"Successfully processed {len(text_chunks)} pages from {file.filename}"}
         
     except Exception as e:
-        raise HTTPException(status_code=500, detail=str(e))
+        raise HTTPException(status_code=500, detail=f"Upload Error: {str(e)}")
 
 @app.post("/chat")
 async def chat(request: ChatRequest):
-    # 1. Embed the user's question
-    vector = embeddings.embed_query(request.question)
-    
-    # 2. Search Pinecone for similar info
-    search_results = index.query(vector=vector, top_k=3, include_metadata=True)
-    
-    # 3. Combine info into a "Context"
-    context = ""
-    for match in search_results['matches']:
-        context += match['metadata']['text'] + "\n\n"
-    
-    # 4. Ask Gemini
-    prompt = f"""You are an expert Cardiologist AI Assistant. 
-    
-    First, check the following 'Medical Context' for the answer.
-    If the answer is in the context, use it to provide a detailed response.
-    
-    If the answer is NOT in the context, you may use your general medical knowledge to answer the question, BUT you must start your answer with:
-    "Based on general cardiology knowledge (not from your specific database)..."
-    
-    Always be professional, empathetic, and remind the user to consult a real doctor.
-    
-    Format your answer using clear Markdown:
-    - **ALWAYS start with a clear Header (## Title)** summarizing the topic.
-    - Use **Bold** for key terms and symptoms.
-    - Use bullet points for lists.
-    - Split long text into paragraphs.
-    
-    Medical Context:
-    {context}
-    
-    Question: {request.question}
-    """
-    
-    response = model.generate_content(prompt)
-    
-    return {"answer": response.text}
+    try:
+        # 1. Embed the user's question
+        vector = embeddings.embed_query(request.question)
+        
+        # 2. Search Pinecone for similar info
+        search_results = index.query(vector=vector, top_k=3, include_metadata=True)
+        
+        # 3. Combine info into a "Context"
+        context = ""
+        for match in search_results['matches']:
+            context += match['metadata']['text'] + "\n\n"
+        
+        # 4. Ask Gemini
+        prompt = f"""You are an expert Cardiologist AI Assistant. 
+        
+        First, check the following 'Medical Context' for the answer.
+        If the answer is in the context, use it to provide a detailed response.
+        
+        If the answer is NOT in the context, you may use your general medical knowledge to answer the question, BUT you must start your answer with:
+        "Based on general cardiology knowledge (not from your specific database)..."
+        
+        Always be professional, empathetic, and remind the user to consult a real doctor.
+        
+        Format your answer using clear Markdown:
+        - **ALWAYS start with a clear Header (## Title)** summarizing the topic.
+        - Use **Bold** for key terms and symptoms.
+        - Use bullet points for lists.
+        - Split long text into paragraphs.
+        
+        Medical Context:
+        {context}
+        
+        Question: {request.question}
+        """
+        
+        response = model.generate_content(prompt)
+        
+        return {"answer": response.text}
+    except Exception as e:
+        # Return the actual error message to help debugging
+        return {"answer": f"**System Error:** {str(e)}"}
 
 if __name__ == "__main__":
     import uvicorn

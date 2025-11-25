@@ -39,7 +39,7 @@ The system is built on a decoupled client-server architecture:
 *   **Language:** Python 3.11+
 *   **Orchestration:** LangChain
 *   **Vector DB:** Pinecone
-*   **Embeddings:** `sentence-transformers/all-MiniLM-L6-v2` (Local)
+*   **Embeddings:** `langchain-google-genai` (Model: `text-embedding-004`)
 *   **LLM:** Google Gemini 2.0 Flash (`google-generativeai`)
 *   **PDF Processing:** `pypdf`
 

@@ -54,7 +54,7 @@ metadatas = [{"text": text} for text in texts]
 # 4. Embed & Upload
 print("Embedding and Uploading data in batches...")
 from langchain_google_genai import GoogleGenerativeAIEmbeddings
-embeddings_model = GoogleGenerativeAIEmbeddings(model="models/embedding-001")
+embeddings_model = GoogleGenerativeAIEmbeddings(model="models/text-embedding-004")
 
 batch_size = 10  # Process 10 chunks at a time to respect rate limits
 total_batches = len(texts) // batch_size + (1 if len(texts) % batch_size > 0 else 0)
