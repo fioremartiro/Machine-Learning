@@ -15,7 +15,7 @@ The system is built on a decoupled client-server architecture:
 1.  **Frontend (Client):** Built with **Next.js 15 (App Router)** and **Tailwind CSS**. It handles user interaction, real-time streaming of AI responses, and PDF file uploads.
 2.  **Backend (Server):** A **FastAPI** service that orchestrates the RAG pipeline.
 3.  **Vector Database:** **Pinecone** stores vector embeddings of medical knowledge (Heart Failure, CAD, Arrhythmias, etc.).
-4.  **Embeddings Engine:** **HuggingFace (`all-MiniLM-L6-v2`)** running locally on the server. This eliminates API costs for embeddings and ensures data privacy during vectorization.
+4.  **Embeddings Engine:** **FastEmbed (`BAAI/bge-small-en-v1.5`)** running locally. This is a lightweight, high-performance library designed for serverless environments.
 5.  **LLM (Reasoning):** **Google Gemini 2.0 Flash** generates the final natural language response based on the retrieved context.
 
 ## 🚀 Key Features

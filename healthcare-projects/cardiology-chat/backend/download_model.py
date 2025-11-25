@@ -1,13 +1,6 @@
-import os
-from langchain_community.embeddings import HuggingFaceEmbeddings
+from langchain_community.embeddings.fastembed import FastEmbedEmbeddings
 
-# Set cache directory to a folder inside the project
-cache_dir = os.path.join(os.getcwd(), "model_cache")
-os.makedirs(cache_dir, exist_ok=True)
-
-print(f"Downloading Embedding Model to {cache_dir}...")
-embeddings = HuggingFaceEmbeddings(
-    model_name="all-MiniLM-L6-v2",
-    cache_folder=cache_dir
-)
+print("Downloading FastEmbed Model...")
+# Initializing the class triggers the download
+embeddings = FastEmbedEmbeddings(model_name="BAAI/bge-small-en-v1.5")
 print("Model Downloaded Successfully!")

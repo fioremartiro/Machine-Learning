@@ -8,5 +8,5 @@ langchain-community
 pinecone
 pypdf
 tiktoken
-sentence-transformers
+fastembed
 python-multipart
