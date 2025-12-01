@@ -1,0 +1,176 @@
+.app-container {
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  background-color: var(--bg-color);
+}
+
+.app-header {
+  padding: 1.5rem 2rem;
+  text-align: left;
+  border-bottom: 1px solid #333;
+  background: var(--bg-color);
+  position: sticky;
+  top: 0;
+  z-index: 100;
+}
+
+.brand-logo {
+  font-size: 1.2rem;
+  font-weight: 500;
+  color: var(--text-color);
+  letter-spacing: -0.02em;
+  cursor: pointer;
+  display: inline-block;
+  transition: opacity 0.2s;
+}
+
+.brand-logo:hover {
+  opacity: 0.8;
+}
+
+.app-divider {
+  width: 100%;
+  height: 1px;
+  background-color: #333;
+  margin: 0;
+}
+
+.app-footer {
+  margin-top: auto;
+  padding: 1.5rem 2rem;
+  text-align: center;
+  color: var(--text-secondary);
+  font-size: 0.85rem;
+  /* Border moved to divider */
+}
+
+.subtitle {
+  color: var(--text-secondary);
+  font-size: 1.1rem;
+  margin-top: 0.5rem;
+  font-weight: 400;
+}
+
+.intro-section {
+  text-align: center;
+  padding-top: 1.5rem;
+  padding-bottom: 1.5rem;
+}
+
+.lung-container {
+  position: relative;
+  display: inline-block;
+  cursor: pointer;
+}
+
+.lung-icon {
+  font-size: 4rem;
+  margin-bottom: 0.5rem;
+  animation: float 3s ease-in-out infinite;
+  filter: drop-shadow(0 0 10px rgba(255, 255, 255, 0.1));
+  transition: transform 0.2s;
+}
+
+.lung-container:active .lung-icon {
+  transform: scale(0.95);
+}
+
+@keyframes float {
+  0% {
+    transform: translateY(0px);
+  }
+
+  50% {
+    transform: translateY(-10px);
+  }
+
+  100% {
+    transform: translateY(0px);
+  }
+}
+
+/* Smoke Effect */
+.smoke-effect {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  pointer-events: none;
+  width: 100px;
+  height: 100px;
+}
+
+.smoke-effect span {
+  position: absolute;
+  display: block;
+  width: 20px;
+  height: 20px;
+  background: rgba(200, 200, 200, 0.4);
+  border-radius: 50%;
+  filter: blur(5px);
+  opacity: 0;
+}
+
+.s1 {
+  animation: smoke 1.5s ease-out forwards;
+  left: 40%;
+  top: 40%;
+}
+
+.s2 {
+  animation: smoke 1.5s ease-out 0.2s forwards;
+  left: 50%;
+  top: 50%;
+  width: 25px;
+  height: 25px;
+}
+
+.s3 {
+  animation: smoke 1.5s ease-out 0.4s forwards;
+  left: 30%;
+  top: 40%;
+}
+
+.s4 {
+  animation: smoke 1.5s ease-out 0.1s forwards;
+  left: 60%;
+  top: 30%;
+  width: 15px;
+  height: 15px;
+}
+
+.s5 {
+  animation: smoke 1.5s ease-out 0.3s forwards;
+  left: 45%;
+  top: 45%;
+  width: 30px;
+  height: 30px;
+}
+
+@keyframes smoke {
+  0% {
+    opacity: 0;
+    transform: translateY(0) scale(1);
+  }
+
+  20% {
+    opacity: 0.6;
+    transform: translateY(-20px) scale(1.5);
+  }
+
+  100% {
+    opacity: 0;
+    transform: translateY(-100px) scale(3);
+  }
+}
+
+.intro-section h2 {
+  font-size: 2.2rem;
+  margin-bottom: 0.5rem;
+  color: #ffffff;
+  letter-spacing: -0.03em;
+  background: linear-gradient(to right, #fff, #999);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+}

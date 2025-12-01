@@ -1,0 +1,187 @@
+.input-form-container {
+    max-width: 500px;
+    margin: 0 auto;
+}
+
+.device-selector {
+    display: flex;
+    gap: 8px;
+    margin-bottom: 1.5rem;
+    justify-content: center;
+    background: var(--card-bg);
+    padding: 4px;
+    border-radius: 8px;
+    display: inline-flex;
+    border: 1px solid var(--card-border);
+}
+
+.tooltip-wrapper {
+    position: relative;
+    display: inline-block;
+}
+
+/* Separator */
+.tooltip-wrapper:not(:last-child)::after {
+    content: '';
+    position: absolute;
+    right: -5px;
+    top: 50%;
+    transform: translateY(-50%);
+    height: 16px;
+    width: 1px;
+    background-color: #444;
+    pointer-events: none;
+}
+
+.device-btn {
+    background: transparent;
+    border: none;
+    color: var(--text-secondary);
+    padding: 0.5rem 1rem;
+    border-radius: 6px;
+    transition: all 0.2s;
+    font-size: 0.9rem;
+    font-weight: 500;
+    width: 100%;
+    white-space: nowrap;
+}
+
+.device-btn:hover {
+    color: var(--text-color);
+}
+
+.device-btn.active {
+    background: #2d2e30;
+    color: #fff;
+    box-shadow: 0 1px 3px rgba(0, 0, 0, 0.2);
+}
+
+/* Tooltip Styles */
+.tooltip {
+    visibility: hidden;
+    width: 200px;
+    background-color: #333;
+    color: #fff;
+    text-align: center;
+    border-radius: 6px;
+    padding: 8px;
+    position: absolute;
+    z-index: 1;
+    bottom: 125%;
+    left: 50%;
+    margin-left: -100px;
+    opacity: 0;
+    transition: opacity 0.3s;
+    font-size: 0.8rem;
+    pointer-events: none;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.3);
+    border: 1px solid #444;
+}
+
+.tooltip::after {
+    content: "";
+    position: absolute;
+    top: 100%;
+    left: 50%;
+    margin-left: -5px;
+    border-width: 5px;
+    border-style: solid;
+    border-color: #333 transparent transparent transparent;
+}
+
+.tooltip-wrapper:hover .tooltip {
+    visibility: visible;
+    opacity: 1;
+}
+
+.vape-form {
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
+    background: transparent;
+    padding: 0;
+}
+
+.form-group {
+    display: flex;
+    flex-direction: column;
+    gap: 0.5rem;
+    position: relative;
+    text-align: left;
+}
+
+.form-group label {
+    font-size: 0.85rem;
+    color: var(--text-secondary);
+    font-weight: 500;
+}
+
+/* Hide native spinners for cleaner look */
+input[type=number]::-webkit-inner-spin-button,
+input[type=number]::-webkit-outer-spin-button {
+    -webkit-appearance: none;
+    margin: 0;
+}
+
+input[type=number] {
+    -moz-appearance: textfield;
+}
+
+.form-group input,
+.form-group select {
+    background: var(--input-bg);
+    border: 1px solid var(--input-border);
+    padding: 0.8rem;
+    padding-right: 4rem;
+    /* More space for unit labels */
+    border-radius: 8px;
+    color: var(--text-color);
+    font-size: 1rem;
+    outline: none;
+    transition: border-color 0.2s;
+    font-family: var(--font-main);
+    width: 100%;
+}
+
+.form-group select {
+    padding-right: 2.5rem;
+    /* Specific padding for dropdown arrow */
+    appearance: none;
+    /* Remove default arrow to style custom if needed, or just padding */
+    background-image: url("data:image/svg+xml;charset=UTF-8,%3csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none' stroke='%23888' stroke-width='2' stroke-linecap='round' stroke-linejoin='round'%3e%3cpolyline points='6 9 12 15 18 9'%3e%3c/polyline%3e%3c/svg%3e");
+    background-repeat: no-repeat;
+    background-position: right 1rem center;
+    background-size: 1em;
+}
+
+.form-group input:focus,
+.form-group select:focus {
+    border-color: var(--accent-color);
+    box-shadow: 0 0 0 1px var(--accent-color);
+}
+
+.unit {
+    position: absolute;
+    right: 1rem;
+    /* Positioned cleanly on the right */
+    top: 2.3rem;
+    /* Aligned with input text */
+    color: #666;
+    pointer-events: none;
+    font-size: 0.9rem;
+    font-weight: 500;
+    text-align: right;
+}
+
+.submit-btn {
+    margin-top: 1rem;
+    width: 100%;
+    background-color: #e3e3e3;
+    color: #000;
+    border-radius: 24px;
+    font-weight: 600;
+}
+
+.submit-btn:hover {
+    background-color: #fff;
+}
