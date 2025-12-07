@@ -1,7 +1,158 @@
+.visualizer-wrapper {
+    display: grid;
+    grid-template-columns: 1fr 2fr 1fr;
+    gap: 2rem;
+    max-width: 1400px;
+    margin: 0 auto;
+    padding: 1rem;
+    align-items: start;
+}
+
+.visualizer-center-col {
+    display: flex;
+    flex-direction: column;
+    gap: 2rem;
+}
+
+.side-column {
+    display: flex;
+    flex-direction: column;
+    gap: 1.5rem;
+}
+
+.info-card {
+    background: var(--card-bg);
+    border: 1px solid var(--card-border);
+    border-radius: 12px;
+    padding: 1.5rem;
+    text-align: left;
+}
+
+.info-card h3 {
+    color: var(--accent-color);
+    font-size: 1.1rem;
+    margin-bottom: 1.5rem;
+    border-bottom: 1px solid #333;
+    padding-bottom: 0.5rem;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+}
+
+.risk-item {
+    margin-bottom: 1.5rem;
+}
+
+.risk-item h4 {
+    color: #fff;
+    margin-bottom: 0.5rem;
+    font-size: 1rem;
+}
+
+.risk-item p {
+    color: var(--text-secondary);
+    font-size: 0.9rem;
+    line-height: 1.5;
+}
+
+.divider {
+    height: 1px;
+    background: #333;
+    margin: 1rem 0;
+}
+
+.alert-box {
+    background: rgba(255, 193, 7, 0.1);
+    border: 1px solid rgba(255, 193, 7, 0.3);
+    padding: 1rem;
+    border-radius: 8px;
+    font-size: 0.85rem;
+    color: #ffd54f;
+    line-height: 1.4;
+}
+
+.resource-list {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+}
+
+.resource-list li {
+    margin-bottom: 1rem;
+}
+
+.resource-list a {
+    display: block;
+    padding: 1rem;
+    background: rgba(255, 255, 255, 0.03);
+    border-radius: 8px;
+    text-decoration: none;
+    transition: all 0.2s;
+    border: 1px solid transparent;
+}
+
+.resource-list a:hover {
+    background: rgba(255, 255, 255, 0.08);
+    border-color: var(--accent-color);
+    transform: translateX(5px);
+}
+
+.resource-list strong {
+    display: block;
+    color: #fff;
+    margin-bottom: 0.3rem;
+}
+
+.resource-list span {
+    display: block;
+    color: var(--text-secondary);
+    font-size: 0.85rem;
+}
+
+.help-tip {
+    margin-top: 2rem;
+    padding-top: 1rem;
+    border-top: 1px solid #333;
+    font-size: 0.9rem;
+    color: var(--text-secondary);
+    font-style: italic;
+}
+
+/* Existing Styles Updates */
 .visualizer-container {
+    /* This class is now inside the center col, or replaced by wrapper? 
+       In JSX I replaced visualizer-container with visualizer-wrapper but kept visualizer-container inside?
+       Wait, let me check the JSX replacement.
+       I replaced the outer div with visualizer-wrapper.
+       But I didn't keep visualizer-container class on the center col.
+       I named it visualizer-center-col.
+       So visualizer-container styles might be lost or need to be mapped to visualizer-center-col.
+    */
     text-align: center;
     animation: fadeIn 0.5s ease-out;
 }
+
+/* Mobile Responsive */
+@media (max-width: 1024px) {
+    .visualizer-wrapper {
+        grid-template-columns: 1fr;
+        max-width: 600px;
+    }
+
+    /* Order for mobile: Visualizer -> Risks -> Resources */
+    .visualizer-center-col {
+        order: 1;
+    }
+
+    .left-col {
+        order: 2;
+    }
+
+    .right-col {
+        order: 3;
+    }
+}
+
+/* --- KEEPING EXISTING STYLES BELOW --- */
 
 @keyframes fadeIn {
     from {
@@ -16,7 +167,10 @@
 }
 
 .shock-header {
-    margin-bottom: 2rem;
+    margin-bottom: 0;
+    /* Let flex gap handle spacing */
+    text-align: center;
+    /* Ensure text is centered */
 }
 
 .label {
@@ -31,31 +185,29 @@
 .big-number {
     font-size: 5rem;
     color: #fff;
-    line-height: 1.2;
-    /* Increased line height to prevent overlap */
-    margin: 0.5rem 0 1rem 0;
-    /* Added bottom margin */
+    line-height: 1;
+    /* Tighter line height */
+    margin: 0;
+    /* Remove margins */
     font-weight: 700;
     letter-spacing: 0.05em;
-    /* Reduced spacing */
 }
 
 .unit {
     font-size: 1.2rem;
     font-weight: 500;
     color: #fff !important;
-    /* Force white color */
     opacity: 0.9;
 }
 
 .visual-representation {
-    margin: 2rem 0;
+    margin: 0;
+    /* Let flex gap handle spacing */
     padding: 2rem;
     background: var(--card-bg);
     border-radius: 12px;
     border: 1px solid var(--card-border);
     box-sizing: border-box;
-    /* Removed forced height and centering */
 }
 
 .cigarette-stack {
@@ -65,12 +217,10 @@
     gap: 3px;
     margin-bottom: 1rem;
     align-items: center;
-    /* Align items vertically */
 }
 
 .plus-more {
     margin-left: 0.5rem;
-    /* Reduced space */
     color: var(--text-secondary);
     font-weight: 500;
     font-size: 1rem;
@@ -93,7 +243,6 @@
     right: 0;
     height: 10px;
     background-color: #8c6b36;
-    /* Darker tobacco color */
     border-radius: 2px 2px 0 0;
 }
 
@@ -113,7 +262,6 @@
     color: var(--text-secondary);
     font-size: 0.9rem;
     margin-top: 1.5rem;
-    /* Increased spacing below stack */
 }
 
 .details-section {
@@ -123,8 +271,7 @@
     flex-direction: column;
     gap: 1.5rem;
     width: 100%;
-    max-width: 1200px;
-    /* Wider container for grid */
+    /* max-width: 1200px;  Removed max-width as it's now in a column */
     margin: 0 auto;
 }
 
@@ -150,7 +297,6 @@
     .grid-row-2,
     .grid-row-3 {
         grid-template-columns: 1fr 1fr;
-        /* 2 columns on desktop */
     }
 }
 
@@ -182,7 +328,6 @@
     border-bottom: 1px solid #333;
     padding-bottom: 0.5rem;
     font-weight: 700;
-    /* Bold */
 }
 
 .stat-card.warning h3 {
@@ -198,24 +343,18 @@
     display: grid;
     grid-template-columns: 1fr 1fr 1fr;
     gap: 0;
-    /* Gap handled by padding/borders */
     width: 90%;
     margin: 1rem auto 0 auto;
-    /* Center the content */
 }
 
 .stat-row {
     display: flex;
     flex-direction: column;
     align-items: center;
-    /* Center content */
     text-align: center;
-    /* Center text */
     padding: 0 0.5rem;
-    /* Reduced padding to fit content */
     border-right: 1px solid #333;
     border-bottom: none;
-    /* Remove default mobile border */
 }
 
 .stat-row:first-child {
@@ -240,10 +379,8 @@
     font-size: 1.4rem;
     display: block;
     white-space: nowrap;
-    /* Prevent wrapping */
 }
 
-/* Mobile fallback if needed, but user seems to want this layout generally */
 @media (max-width: 600px) {
     .stat-card-content {
         grid-template-columns: 1fr;
@@ -256,7 +393,6 @@
         border-bottom: 1px solid #333;
         padding: 1rem 0;
         align-items: center;
-        /* Center on mobile? Or keep left? Let's keep left for consistency or center if narrow */
     }
 
     .stat-row:first-child {
@@ -279,10 +415,8 @@
 }
 
 .stat-card.local-context h3 {
-    /* Border inherited from .stat-card h3 */
     margin-bottom: 1rem;
     width: 100%;
-    /* Ensure border spans full width */
 }
 
 .local-context .comparison {
@@ -296,7 +430,6 @@
     color: var(--accent-color);
 }
 
-/* Action Buttons */
 .action-buttons {
     display: flex;
     gap: 1rem;
@@ -313,7 +446,6 @@
     transition: transform 0.2s, opacity 0.2s;
     color: #000;
     background: #e5e5e5;
-    /* Light gray from image */
 }
 
 .action-buttons button:hover {
@@ -321,14 +453,42 @@
     transform: translateY(-2px);
 }
 
-/* "Compartir Resultados" - Pill Shape */
 .btn-secondary {
     border-radius: 50px;
-    /* Match primary button */
 }
 
-/* "Probar Otro Dispositivo" - Pill Shape */
 .btn-primary {
     border-radius: 50px;
-    /* Pill shape */
+}
+
+.risk-subtitle {
+    color: var(--accent-color);
+    font-size: 0.85rem;
+    margin-bottom: 0.8rem;
+    font-style: italic;
+}
+
+.risk-details {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+}
+
+.risk-details li {
+    margin-bottom: 0.5rem;
+    font-size: 0.9rem;
+    color: var(--text-secondary);
+    line-height: 1.4;
+    padding-left: 0.5rem;
+    border-left: 2px solid #333;
+}
+
+.risk-details strong {
+    color: #fff;
+    font-weight: 600;
+}
+
+/* Ensure alert box stands out */
+.alert-box {
+    margin-top: 1.5rem;
 }

@@ -14,11 +14,13 @@ function App() {
     data.user = { age, yearsVaping };
     setImpactData(data);
     setView('visualizer');
+    window.scrollTo(0, 0);
   };
 
   const handleReset = () => {
     setImpactData(null);
     setView('input');
+    window.scrollTo(0, 0);
   };
 
   const handleHomeClick = () => {
@@ -39,7 +41,7 @@ function App() {
         <h1 onClick={handleHomeClick} className="brand-logo">Vaping Impact</h1>
       </header>
 
-      <main className="container">
+      <main className={`container ${view === 'visualizer' ? 'visualizer-mode' : ''}`}>
         {view === 'input' && (
           <div className="intro-section">
             <div className="lung-container" onMouseEnter={handleLungHover}>
