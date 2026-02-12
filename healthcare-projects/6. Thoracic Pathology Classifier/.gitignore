@@ -1,0 +1,28 @@
+# Data
+data/
+datasets/
+*.zip
+*.tar.gz
+
+# Model artifacts
+*.h5
+*.keras
+*.ckpt
+*.pt
+
+# Python cache
+__pycache__/
+*.pyc
+
+# Virtual environments
+.venv/
+venv/
+
+# OS files
+.DS_Store
+
+# Notebooks checkpoints
+.ipynb_checkpoints/
+
+# Logs
+logs/
