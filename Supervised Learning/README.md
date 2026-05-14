@@ -11,8 +11,9 @@ Regression algorithms are used when the output variable is continuous and numeri
 
 Example algorithms:
 - **Linear Regression**
-- **Polynomial Regression**
+- **Logistic Regression**
 - **Multiple Regression**
+- **Polynomial Regression**
 - **Ridge Regression**
 - **Lasso Regression**
 - **Elastic Net Regression**
