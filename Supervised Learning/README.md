@@ -1,49 +1,29 @@
 # Supervised Learning
 
-Supervised learning is a type of machine learning where the model is trained on a labeled dataset. This means each training example includes input features (independent variables) and a known output (dependent variable). The goal is for the model to learn a mapping from inputs to outputs so it can predict outcomes for new, unseen data.
+Supervised learning is the type of machine learning where the model learns from a labeled dataset, meaning every training example already includes the correct answer. The fundamental goal is for the algorithm to discover the mathematical map that connects inputs (X) with outputs (Y), allowing it to accurately predict the result of new data it has never seen before by identifying the patterns learned during training.
 
 Supervised learning problems are broadly categorized into:
 
 ---
 
 ## 📈 Regression
-Regression algorithms are used when the output variable is continuous and numeric. They predict values such as prices, temperatures, or probabilities.
+Regression is the technique specialized in predicting a magnitude or measurable quantity to answer the question "how much," always resulting in a continuous numerical output. Through this process, the algorithm seeks the formula that best models how the final result directly depends on changes in the input data.
 
-Example algorithms:
-- **Linear Regression**
-- **Logistic Regression**
-- **Multiple Regression**
-- **Polynomial Regression**
-- **Ridge Regression**
-- **Lasso Regression**
-- **Elastic Net Regression**
 
-👉 See [Regression Examples](./Regression%20examples/README.md)
 
-## **Example - Predicting House Prices** 
-
-You have a dataset with features like square footage, number of bedrooms, and location. The goal is to predict the **price** of a house.  
-Here the output (price) is a continuous numeric value.
+*   **Goal:** Predict a continuous numeric value.
+*   **Example:** Predicting House Prices (Output: Price).
+*   **Algorithms:** Linear, Multiple, Polynomial, Ridge, Lasso, Elastic Net.
+*   👉 See [Regression Examples](./Regression_examples/README.md)
 
 ---
 
 ## 🏷️ Classification
-Classification algorithms are used when the output variable is categorical. The goal is to assign input data to one of several predefined classes or categories.
+Classification is the technique specialized in assigning labels or categories to answer the question "what is it," always resulting in a discrete output. The algorithm seeks to establish decision boundaries that divide data according to its membership in a specific group, allowing it to identify the identity of a new data point.
 
-Example algorithms:
-- **Logistic Regression**
-- **Decision Trees**
-- **Random Forest**
-- **Support Vector Machines (SVM)**
-- **K-Nearest Neighbors (KNN)**
-- **Naive Bayes**
 
-👉 See [Classification Examples](./Classification%20Examples/README.md)
 
-## **Example - Email Spam Detection**
-
-You have a dataset of emails with features like word frequency, presence of links, and sender reputation. The goal is to predict whether each email is **spam or not spam**. Here the output (spam/not spam) is a discrete class.
-
----
-
-Each algorithm has its own subfolder with example notebooks
+*   **Goal:** Assign data to predefined classes or categories.
+*   **Example:** Email Spam Detection (Output: Spam / Not Spam).
+*   **Algorithms:** Logistic Regression, Decision Trees, Random Forest, SVM, KNN, Naive Bayes.
+*   👉 See [Classification Examples](./Classification_Examples/README.md)
