@@ -14,7 +14,7 @@ Regression is the technique specialized in predicting a magnitude or measurable 
 *   **Goal:** Predict a continuous numeric value.
 *   **Example:** Predicting House Prices (Output: Price).
 *   **Algorithms:** Linear, Multiple, Polynomial, Ridge, Lasso, Elastic Net.
-*   👉 See [Regression Examples](./Regression_examples/README.md)
+*   👉 See [Regression Examples](https://github.com/fioremartiro/Machine-Learning/tree/main/Supervised%20Learning/Regression%20examples)
 
 ---
 
