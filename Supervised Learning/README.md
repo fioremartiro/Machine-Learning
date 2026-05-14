@@ -26,4 +26,6 @@ Classification is the technique specialized in assigning labels or categories to
 *   **Goal:** Assign data to predefined classes or categories.
 *   **Example:** Email Spam Detection (Output: Spam / Not Spam).
 *   **Algorithms:** Logistic Regression, Decision Trees, Random Forest, SVM, KNN, Naive Bayes.
-*   👉 See [Classification Examples](./Classification_Examples/README.md)
+*   👉 See [Classification Examples](https://github.com/fioremartiro/Machine-Learning/tree/main/Supervised%20Learning/Classification%20Examples)
+
+---
